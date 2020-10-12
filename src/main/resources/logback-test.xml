@@ -1,0 +1,26 @@
+<configuration scan="true" scanPeriod="60 seconds" debug="false" packagingData="true">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!--
+        additivity="false" 表示当前以及子logger都不会使用当前logger父logger的appender，也不会使用其他logger的appender，
+        当前以及子logger只会使用当前logger的appender。
+        这里的"com.smart","com.smart.logback" logger都不会使用root logger的appender，也不会使用其他logger的appender，
+        只会使用"com.smart" logger的appender
+    -->
+    <logger name="com.smart" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="com.smart.logback">
+    </logger>
+
+</configuration>
