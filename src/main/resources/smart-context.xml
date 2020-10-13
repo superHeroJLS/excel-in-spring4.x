@@ -17,6 +17,7 @@
     <context:component-scan base-package="com.smart.service"/>
 
     <!-- 配置数据源 -->
+	<!-- p:driverClassName属性代表的是<bean>标签<property>的简写-->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" 
 		p:driverClassName="com.mysql.jdbc.Driver"
@@ -24,25 +25,33 @@
 		p:username="root"
 		p:password="123456" />
 
-	<!-- 配置Jdbc模板  -->
+	<!-- 配置Jdbc模板，依赖数据源 -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
 		p:dataSource-ref="dataSource" />
 		
-	<!-- 配置事务管理器 -->
+	<!-- 配置事务管理器，针对不同的平台,操作事务的代码各不相同.spring提供了一个接口，PlatformTransactionManager接口，默认实现DataSourceTransactionManager -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		p:dataSource-ref="dataSource" />
-		
-	<!-- 通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务 -->
-	<aop:config proxy-target-class="true">
-		<aop:pointcut id="serviceMethod"
-			expression="(execution(* com.smart.service..*(..))) and (@annotation(org.springframework.transaction.annotation.Transactional))" />
-		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
-	</aop:config>
+		  p:dataSource-ref="dataSource"/>
+
+	<!-- 配置事务通知，依赖事务管理器-->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="*" />
+			<!--以方法为单位，指定方法应用什么事务属性  -->
+			<tx:method name="*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+			<tx:method name="insert*" isolation="DEFAULT" propagation="REQUIRED" read-only="false" />
 		</tx:attributes>
 	</tx:advice>
+
+	<!-- 配置事务织入，依赖事务通知，通过AOP配置提供事务增强，让service包下所有Bean的所有加了@Annotation注解的方法拥有事务 -->
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="serviceMethod"
+					  expression="(execution(* com.smart.service..*(..))) and (@annotation(org.springframework.transaction.annotation.Transactional))" />
+		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
+	</aop:config>
+
+	<!-- 另一种方式配置事务织入，即注解事务 -->
+	<!-- 第一步：加上配置 <tx:annotation-driven transaction-manager="transactionManager" /> -->
+	<!-- 第二步：在service的方法中给需要事务的方法加上注解@Annotation-->
 
 </beans>

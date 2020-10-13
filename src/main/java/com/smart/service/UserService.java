@@ -8,6 +8,8 @@ import com.smart.dao.LoginLogDao;
 import com.smart.dao.UserDao;
 import com.smart.domain.LoginLog;
 import com.smart.domain.User;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -25,7 +27,7 @@ public class UserService {
 		return userDao.findUserByUserName(userName);
 	}
 
-	@Transactional
+	@Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED)
     public void loginSuccess(User user) {
 		user.setCredits( 5 + user.getCredits());
 		LoginLog loginLog = new LoginLog();
