@@ -52,6 +52,6 @@
 
 	<!-- 另一种方式配置事务织入，即注解事务 -->
 	<!-- 第一步：加上配置 <tx:annotation-driven transaction-manager="transactionManager" /> -->
-	<!-- 第二步：在service的方法中给需要事务的方法加上注解@Annotation-->
+	<!-- 第二步：在service的方法中给需要事务的方法加上注解@Transactional-->
 
 </beans>
