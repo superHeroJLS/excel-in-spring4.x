@@ -99,11 +99,22 @@
             <version>1.2</version>
         </dependency>-->
 
-        <!-- logback -->
+        <!-- logback测试 -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
+        </dependency>
+        <!-- 当前工程要是想要使用Commons-logging和log4j这对好基友记录日志的话，就加上下面2个dependency-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
 
     </dependencies>
