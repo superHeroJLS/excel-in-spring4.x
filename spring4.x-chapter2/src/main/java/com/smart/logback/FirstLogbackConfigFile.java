@@ -13,7 +13,7 @@ public class FirstLogbackConfigFile {
 
     public static void firstLog() {
         Parent.printLog();
-        logger.debug("execute com.smart.logback.firstlog()");
+        logger.debug("execute com.com.smart.logback.firstlog()");
     }
 
 }

@@ -13,14 +13,14 @@
     <!--
         additivity="false" 表示当前以及子logger都不会使用当前logger父logger的appender，也不会使用其他logger的appender，
         当前以及子logger只会使用当前logger的appender。
-        这里的"com.smart","com.smart.logback" logger都不会使用root logger的appender，也不会使用其他logger的appender，
-        只会使用"com.smart" logger的appender
+        这里的"com.com.smart","com.com.smart.logback" logger都不会使用root logger的appender，也不会使用其他logger的appender，
+        只会使用"com.com.smart" logger的appender
     -->
-    <logger name="com.smart" additivity="false">
+    <logger name="com.com.smart" additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <logger name="com.smart.logback">
+    <logger name="com.com.smart.logback">
     </logger>
 
 </configuration>

@@ -13,8 +13,8 @@
        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
     
     <!-- 扫描类包，将标注Spring注解的类自动转化Bean，同时完成Bean的注入 -->
-    <context:component-scan base-package="com.smart.dao"/>
-    <context:component-scan base-package="com.smart.service"/>
+    <context:component-scan base-package="com.com.smart.dao"/>
+    <context:component-scan base-package="com.com.smart.service.service"/>
 
     <!-- 配置数据源 -->
 	<!-- p:driverClassName属性代表的是<bean>标签<property>的简写-->
@@ -46,7 +46,7 @@
 	<!-- 配置事务织入，依赖事务通知，通过AOP配置提供事务增强，让service包下所有Bean的所有加了@Annotation注解的方法拥有事务 -->
 	<aop:config proxy-target-class="true">
 		<aop:pointcut id="serviceMethod"
-					  expression="(execution(* com.smart.service..*(..))) and (@annotation(org.springframework.transaction.annotation.Transactional))" />
+					  expression="(execution(* com.com.smart.service.service..*(..))) and (@annotation(org.springframework.transaction.annotation.Transactional))" />
 		<aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
 	</aop:config>
 

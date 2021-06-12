@@ -1,14 +1,18 @@
 package com.smart.service;
 
-import java.util.Date;
-import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
-import org.testng.annotations.*;
+import com.smart.domain.User;
+import com.smart.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import com.smart.domain.User;
-import static org.testng.Assert.*;
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
+import org.testng.annotations.Test;
 
-@ContextConfiguration("classpath*:/smart-context.xml")
+import java.util.Date;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+@ContextConfiguration("classpath*:/com.smart-context.xml")
 public class UserServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
 	@Autowired

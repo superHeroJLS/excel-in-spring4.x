@@ -1,0 +1,101 @@
+# Slf4j&Logback config: Available levels are: TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+#logging.level.com.com.smart = DEBUG
+#logging.level.org.springframework.web = DEBUG
+##logging.file = /var/netgloo_blog/logs/spring-boot-logging.log
+
+#spring mvc configuration
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+##server.contextPath=/
+##server.port=8080
+
+## Fully qualified name of the connection pool implementation to use. By default,it is auto-detected from the classpath.
+##spring.datasource.type=org.apache.commons.dbcp2.BasicDataSource
+
+#在Spring Boot中，可以通过两种方式配置数据库连接。
+#一种是通过自定义连接的方式，通过配置spring.datasource.*选项设定数据源的链接地址、连接驱动器、用户名及密码
+#另外一种是通过JNDI方式设置，在生产环境中通常会采用此种方式。为spring.datasource.jndi-name属性指定一个JNDI连接名称即可
+#数据源配置
+  datasource:
+    name: sampleDs
+    url: jdbc:mysql://localhost:3306/sampledb
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+#默认情况下，Boot启动器自动创建tomcat-jdbc连接池
+#不想采用默认的连接池，则可以通过spring.datasource.type属性手工指定项目所需的连接池（如DBCP、C3P0）
+# 数据库连接池配置
+#spring.datasource.type=org.apache.commons.dbcp.BasicDataSource
+    max-wait: 10000
+    max-active: 50
+    max-idle: 10
+    min-idle: 8
+    test-on-borrow: true
+    validation-query: select 1
+
+## JNDI location of the datasource. Class, url, username & password are ignored when set.
+#spring.datasource.jndi-name=java:comp/env/jdbc/sampleDs
+
+#Boot中提供了灵活的数据库初始化方式，可以设定DDL脚本，也可以设定DML脚本
+#spring.datasource.initialize属性设置启动的时候是否进行初始化；spring.datasource.platform属性设置当前数据库类型
+# （如Oracle、MySQL、SQL Server等）；spring.datasource.data属性设置DML脚本文件名称，
+# 在启动的时候会从类根路径加载data-${platform}.sql文件执行，其中${platform}为当前数据库类型，本示例配置会加载data-mysql.sql
+#初始化数据库脚本
+    initialize: true
+    platform: mysql
+    data: data
+    schema: schema
+
+#数据库监控配置
+management:
+  health:
+    db:
+      enabled: true
+    defaults:
+      enabled: true
+
+#引用磁盘空间检查配置
+    diskspace:
+      enabled: true
+      path: D:/masterspring/code
+      threshold: 0
+
+# ElasticSearch服务健康检查配置
+    elasticsearch:
+      enabled: true
+      indices: indexl,index2
+      response-timeout: 100
+
+# Solr服务健康检查配置
+    solr:
+      enabled: true
+
+#JMS服务健康检查配置
+    jms:
+      enabled: true
+
+# Mail服务健康检查配置
+    mail:
+      enabled: true
+
+# MongoDB服务健康检查配置
+    mongo:
+      enabled: true
+
+# Rabbit MQ服务健康检查配置
+    rabbit:
+      enabled: true
+
+# Redis服务健康检查配置
+    redis:
+      enabled: true
+    status:
+      order: DOWN, OUT_OF_SERVICE, UNKNOWN, UP
+
+
+
