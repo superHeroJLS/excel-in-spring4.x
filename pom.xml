@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.smart</groupId>
-    <artifactId>spring4.x</artifactId>
+    <artifactId>excel-in-spring4.x</artifactId>
     <version>1.0</version>
+    <description>Spring4.x第二章实例</description>
+    <packaging>pom</packaging>
+
     <modules>
         <module>spring4.x-chapter2</module>
     </modules>
-    <name>spring4.x</name>
-    <description>Spring4.x第二章实例</description>
-    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
