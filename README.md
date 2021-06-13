@@ -1,4 +1,4 @@
-精通Spring4.x-企业应用开发实战源码
+《精通Spring4.x-企业应用开发实战》源码
 > 由于Spring 4.x拥有多个版本，为了保持行文的简洁，除非特别指出，本书的Spring或Spring 4.0即代表当前的最新版本（Spring4.2.x）。
 
 # Spring概述
