@@ -18,6 +18,13 @@
     <modules>
         <module>spring4.x-chapter2</module>
         <module>spring4.x-chapter3</module>
+        <module>spring4.x-chapter4</module>
+        <module>spring4.x-chapter5</module>
+        <module>spring4.x-chapter6</module>
+        <module>spring4.x-chapter7</module>
+        <module>spring4.x-chapter8</module>
+        <module>spring4.x-chapter9</module>
+        <module>spring4.x-chapter11</module>
     </modules>
 
     <properties>

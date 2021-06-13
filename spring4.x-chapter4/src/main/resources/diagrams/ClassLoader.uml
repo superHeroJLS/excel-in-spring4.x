@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.lang.ClassLoader</OriginalElement>
+  <nodes>
+    <node x="116.0" y="101.0">java.security.SecureClassLoader</node>
+    <node x="135.5" y="202.0">java.net.URLClassLoader</node>
+    <node x="0.0" y="303.0">sun.misc.Launcher.ExtClassLoader</node>
+    <node x="155.0" y="0.0">java.lang.ClassLoader</node>
+    <node x="271.0" y="303.0">sun.misc.Launcher.AppClassLoader</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.net.URLClassLoader" target="java.security.SecureClassLoader">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="java.security.SecureClassLoader" target="java.lang.ClassLoader">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="sun.misc.Launcher.AppClassLoader" target="java.net.URLClassLoader">
+      <point x="0.0" y="-25.5" />
+      <point x="396.5" y="278.0" />
+      <point x="323.75" y="278.0" />
+      <point x="62.75" y="25.5" />
+    </edge>
+    <edge source="sun.misc.Launcher.ExtClassLoader" target="java.net.URLClassLoader">
+      <point x="0.0" y="-25.5" />
+      <point x="125.5" y="278.0" />
+      <point x="198.25" y="278.0" />
+      <point x="-62.75" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="261.0" y="177.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

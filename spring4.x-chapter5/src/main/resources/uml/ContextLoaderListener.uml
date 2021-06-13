@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.web.context.ContextLoaderListener</OriginalElement>
+  <nodes>
+    <node x="0.0" y="101.0">javax.servlet.ServletRequestListener</node>
+    <node x="246.0" y="0.0">java.util.EventListener</node>
+    <node x="750.0" y="101.0">org.springframework.web.context.ContextLoader</node>
+    <node x="0.0" y="202.0">org.springframework.web.context.request.RequestContextListener</node>
+    <node x="376.0" y="104.0">javax.servlet.ServletContextListener</node>
+    <node x="539.75" y="202.0">org.springframework.web.context.ContextLoaderListener</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="javax.servlet.ServletContextListener" target="java.util.EventListener">
+      <point x="0.0" y="-25.5" />
+      <point x="552.5" y="76.0" />
+      <point x="424.5" y="76.0" />
+      <point x="59.5" y="25.5" />
+    </edge>
+    <edge source="javax.servlet.ServletRequestListener" target="java.util.EventListener">
+      <point x="0.0" y="-25.5" />
+      <point x="177.5" y="76.0" />
+      <point x="305.5" y="76.0" />
+      <point x="-59.5" y="25.5" />
+    </edge>
+    <edge source="org.springframework.web.context.request.RequestContextListener" target="javax.servlet.ServletRequestListener">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="org.springframework.web.context.ContextLoaderListener" target="javax.servlet.ServletContextListener">
+      <point x="-85.5" y="-25.5" />
+      <point x="625.25" y="177.0" />
+      <point x="552.5" y="177.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="org.springframework.web.context.ContextLoaderListener" target="org.springframework.web.context.ContextLoader">
+      <point x="85.5" y="-25.5" />
+      <point x="796.25" y="177.0" />
+      <point x="869.0" y="177.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="494.0" y="126.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
